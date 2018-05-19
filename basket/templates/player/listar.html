@@ -1,0 +1,35 @@
+{% block content %}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Nombre</td>
+			<td>Edad</td>
+			<td>Peso</td>
+			<td>Altura</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% if jugadores %}
+		{% for jugador in jugadores %}
+		<tr>
+			<td>{{jugador.pk}}</td>
+			<td>{{jugador.name}}</td>
+			<td>{{jugador.age}}</td>
+			<td>{{jugador.weight}}</td>
+			<td>{{jugador.height}}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'player_edit' jugador.pk %}">editar</a>
+				<a class="btn btn-danger" href="{% url 'player_delete' jugador.pk %}">eliminar</a>
+			</td>
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay registro</h1>
+		{% endif %}
+	</tbody>
+</table>
+
+{% endblock%}

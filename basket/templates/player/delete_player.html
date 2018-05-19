@@ -1,0 +1,8 @@
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+	<h3>¿Desea eliminar el registro?</h3>
+	<button class="btn btn-danger" type="submit">Si, eliminar</button>
+	<a class="btm btn-default" href="{% url 'player_list' %}">Cancelar</a>
+</form>
+{% endblock %}
